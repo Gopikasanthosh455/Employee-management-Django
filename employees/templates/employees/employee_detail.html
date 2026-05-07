@@ -1,0 +1,26 @@
+{% extends "employees/base.html" %}
+
+{% block content %}
+<section class="card narrow">
+    <p class="eyebrow">Fetch Employee by ID</p>
+    <h2>{{ employee.name }}</h2>
+
+    <dl class="details">
+        <dt>ID</dt>
+        <dd>{{ employee.id }}</dd>
+        <dt>Email</dt>
+        <dd>{{ employee.email }}</dd>
+        <dt>Department</dt>
+        <dd>{{ employee.department }}</dd>
+        <dt>Salary</dt>
+        <dd>{{ employee.salary }}</dd>
+        <dt>Status</dt>
+        <dd>{{ employee.status }}</dd>
+    </dl>
+
+    <div class="actions">
+        <a class="button" href="{% url 'employee_update' employee.id %}">Update</a>
+        <a class="button danger" href="{% url 'employee_delete' employee.id %}"> Delete</a>
+    </div>
+</section>
+{% endblock %}

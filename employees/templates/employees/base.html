@@ -1,0 +1,33 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="{% static 'employees/styles.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <div>
+            <h1>Employee Management System</h1>
+            <p class="subtitle">Create, view, update, and soft delete employee records.</p>
+        </div>
+        <nav>
+            <a href="{% url 'employee_list' %}">Active Employees</a>
+            <a href="{% url 'employee_create' %}">Add Employee</a>
+            <a href="{% url 'payroll_calculator' %}">Section B</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

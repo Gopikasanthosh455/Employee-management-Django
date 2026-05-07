@@ -1,0 +1,26 @@
+{% extends "employees/base.html" %}
+
+{% block content %}
+<section class="card narrow">
+    <p class="eyebrow">Section B - Question 6</p>
+    <h2>Payroll Tax Bracket</h2>
+    <p>Calculates net salary after tax. Contractors get an additional flat 100 deduction.</p>
+
+    <form method="post" class="stacked-form">
+        {% csrf_token %}
+        <p>
+            <label for="gross_salary">Gross Salary</label>
+            <input id="gross_salary" type="number" name="gross_salary" step="0.01" min="0" required>
+        </p>
+        <p class="checkbox-row">
+            <input id="is_contractor" type="checkbox" name="is_contractor">
+            <label for="is_contractor">Employee is a Contractor</label>
+        </p>
+        <button type="submit">Calculate Net Salary</button>
+    </form>
+
+    {% if result is not None %}
+        <div class="result">Net Salary: {{ result|floatformat:2 }}</div>
+    {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "employees/base.html" %}
+
+{% block content %}
+<section class="card narrow">
+    <h2>{{ title }}</h2>
+    <form method="post" class="stacked-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Employee</button>
+    </form>
+</section>
+{% endblock %}

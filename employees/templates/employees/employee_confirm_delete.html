@@ -1,0 +1,15 @@
+{% extends "employees/base.html" %}
+
+{% block content %}
+<section class="card narrow">
+    <p class="eyebrow">Soft Delete</p>
+    <h2>Mark {{ employee.name }} as INACTIVE?</h2>
+    <p>This does not remove the record from the database. It only changes the status to INACTIVE.</p>
+
+    <form method="post" class="actions">
+        {% csrf_token %}
+        <button type="submit" class="danger">Confirm Delete</button>
+        <a class="button" href="{% url 'employee_detail' employee.id %}">Cancel</a>
+    </form>
+</section>
+{% endblock %}
