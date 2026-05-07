@@ -5,7 +5,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "assessment-dev-secret-key"
 DEBUG = True
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    ".onrender.com",
+]
+
+
+
+
+
 
 INSTALLED_APPS = [
     "django.contrib.admin",
